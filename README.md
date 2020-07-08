@@ -109,7 +109,8 @@ Now, we'll create a couple NPM scripts that make it easy to run the linter. Upda
   "scripts" {
     (other scripts),
     "lint": "eslint . --ext .jsx,.js",
-    "lint:fix": "eslint . --ext .jsx,.js --fix"
+    "lint:fix": "eslint . --ext .jsx,.js --fix",
+    "lint:githook": "eslint --ext .jsx,.js --fix --ignore-path .gitignore"
   }
 }
 ```
@@ -140,7 +141,7 @@ Add `husky` and `lint-staged` configurations to your `package.json`:
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": ["npm run lint:fix"]
+    "*.{js,jsx}": ["npm run lint:githook"]
   }
 }
 ```
@@ -219,7 +220,8 @@ Update `package.json`:
   "scripts" {
     (other scripts),
     "lint": "eslint . --ext .jsx,.js",
-    "lint:fix": "eslint . --ext .jsx,.js --fix"
+    "lint:fix": "eslint . --ext .jsx,.js --fix",
+    "lint:githook": "eslint --ext .jsx,.js --fix --ignore-path .gitignore"
   },
   "husky": {
     "hooks": {
@@ -227,7 +229,7 @@ Update `package.json`:
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": ["npm run lint:fix"]
+    "*.{js,jsx}": ["npm run lint:githook"]
   }
 }
 ```
