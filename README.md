@@ -108,8 +108,8 @@ Now, we'll create a couple NPM scripts that make it easy to run the linter. Upda
 {
   "scripts" {
     (other scripts),
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint": "eslint . --ext .jsx,.js",
+    "lint:fix": "eslint . --ext .jsx,.js --fix"
   }
 }
 ```
@@ -127,17 +127,20 @@ Because different people's code editors may not apply the same rules if they are
 Install Husky:
 
 ```shell
-npm i -D husky
+npm i -D husky lint-staged
 ```
 
-Add a `husky` object to your `package.json`:
+Add `husky` and `lint-staged` configurations to your `package.json`:
 
 ```json
 {
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": ["npm run lint:fix"]
   }
 }
 ```
@@ -215,13 +218,16 @@ Update `package.json`:
 {
   "scripts" {
     (other scripts),
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint": "eslint . --ext .jsx,.js",
+    "lint:fix": "eslint . --ext .jsx,.js --fix"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": ["npm run lint:fix"]
   }
 }
 ```
