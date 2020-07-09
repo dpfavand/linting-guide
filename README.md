@@ -10,7 +10,7 @@ Linters reduce mistakes in code by enforcing good practices. They encourage cons
 
 aka why did Daniel send me here?
 
-> When I check for a working linter, 80% of the time, there is no linting configuration in the project, or it isn't being used properly. And you can tell in the quality of the codebase and the types of issues that folks find themselves tyring to untangle.
+> When I check for a working linter, 80% of the time, there is no linting configuration in the project, or it isn't being used properly. And you can tell in the quality of the codebase and the types of issues that folks find themselves trying to untangle.
 
 ### Bad project configuration
 
